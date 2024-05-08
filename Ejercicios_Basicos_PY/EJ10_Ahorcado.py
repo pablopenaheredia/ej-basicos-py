@@ -1,5 +1,5 @@
 palabras = ['ciberseguridad', 'fullstack', 'algoritmo', 'blockchain', 'backup']
-palabra = palabras[0]  # esto hace que eliga una al azar dentro del array
+palabra = palabras[0]  
 adivinanza = ['_'] * len(palabra)
 intentos = 6
 
