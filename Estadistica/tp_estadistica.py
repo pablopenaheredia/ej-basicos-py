@@ -8,7 +8,7 @@ datos = [float(dato) if "." in dato else int(dato) for dato in datos.split(",")]
 n = len(datos)
 
 #media, mediana, primer y tercer cuartil, moda.
-media = round(statistics.mean(datos), 4) # o sum(datos) / n
+media = round(sum(datos) / n, 4) # o 
 mediana = round(statistics.median(datos), 4)
 datos_inferiores = [n for n in datos if n < mediana]
 datos_superiores = [n for n in datos if n > mediana]
@@ -35,7 +35,7 @@ frec_rel = {}
 for k in frec_abs:
     frec_rel[k] = round(frec_abs[k] / n, 4)
 #frec_rel = {k: round(v / n, 4) for k, v in frec_abs.items()}
-#{k: round(v / n, 4) for k, v in frec_abs.items()}: Esta expresión es un diccionario por comprensión. Veamos qué hace cada parte:
+#{k: round(v / n, 4) fo r k, v in frec_abs.items()}: Esta expresión es un diccionario por comprensión. Veamos qué hace cada parte:
 #.items(): Itera sobre los elementos del diccionario frec_abs. Cada elemento consiste en una clave (k) y su valor (v).
 #v / n: Calcula la frecuencia relativa dividiendo el valor absoluto (v) por el tamaño total de la muestra (n).
 #round(..., 4): Redondea el resultado a 4 decimales.
@@ -48,16 +48,34 @@ frec_porcentual = {k: round(v * 100, 2) for k, v in frec_rel.items()}
 #Frecuencia relativa acumulada: Se obtiene sumando todas las frecuencias relativas que la anteceden más la frecuencia relativa de dicha variable.
 #Frecuencia porcentual acumulada: Se obtiene sumando todas las frecuencias porcentuales de las variables que la anteceden más la frecuencia porcentual de dicha variable.
 
+frec_abs_acum = {}
+acum = 0
+for k in frec_abs:
+    acum += frec_abs[k]
+    frec_abs_acum[k] = acum
+
+
+frec_rel_acum = {}
+acum = 0
+for k in frec_rel:
+    acum += frec_rel[k]
+    frec_rel_acum[k] = round(acum, 4)
+
+
+frec_porcentual_acum = {k: round(v * 100, 2) for k, v in frec_rel_acum.items()}
 
 # Imprimimos los resultados
 print(f"Datos ordenados: {datos}")
 print(f"Media: {media}")
 print(f"Mediana: {mediana}")
-print(f"Moda: {moda}")
-print(f"Frecuencia Absoluta: {frec_abs}")
-print(f"Frecuencia Relativa: {frec_rel}")
-print(f"Frecuencia Porcentual: {frec_porcentual}")
 print(f"Cuartil 1: {cuartil1}")
 print(f"Cuartil 3: {cuartil3}")
-print(f"Desvío Estándar Muestral: {desvio_muestral}")
+print(f"Moda: {moda}")
+print(f"Frecuencia Absoluta: {frec_abs}")
+print(f"Frecuencia Absoluta Acumulada: {frec_abs_acum}")
+print(f"Frecuencia Relativa: {frec_rel}")
+print(f"Frecuencia Relativa Acumulada: {frec_rel_acum}")
+print(f"Frecuencia Porcentual: {frec_porcentual}")
+print(f"Frecuencia Porcentual Acumulada: {frec_porcentual_acum}")
+print(f"Desvío Estándar Muestral: {desvio_muestral}")   
 print(f"Desvío Estándar Poblacional: {desvio_poblacional}")
