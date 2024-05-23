@@ -24,18 +24,15 @@ desvio_muestral = round(varianza_muestral ** 0.5, 4)
 desvio_poblacional = round(varianza_poblacional ** 0.5, 4)
 
 #Frecuencias:
-
-
 datos.sort()
+#Frec Absoluta
 frec_abs = {}
 for dato in datos:
     if dato in frec_abs:
         frec_abs[dato] += 1
     else:
         frec_abs[dato] = 1
-
-
-
+#Frecuencia relativa:
 frec_rel = {}
 for k in frec_abs:
     frec_rel[k] = round(frec_abs[k] / n, 4)
@@ -46,10 +43,9 @@ for k in frec_abs:
 #v / n: Calcula la frecuencia relativa dividiendo el valor absoluto (v) por el tamaño total de la muestra (n).
 #round(..., 4): Redondea el resultado a 4 decimales.
 #{k: ...}: Crea un nuevo diccionario donde las claves son las mismas que en frec_abs, y los valores son las frecuencias relativas calculadas.
-
+#Frecuencia porcentual:
 frec_porcentual = {k: round(v * 100, 2) for k, v in frec_rel.items()}
 
-#Frecuencia absoluta acumulada
 #Frecuencia absoluta acumulada
 frec_abs_acum = {}
 acum = 0
@@ -58,14 +54,12 @@ for k in frec_abs:
     frec_abs_acum[k] = acum
 
 #Frecuencia relativa acumulada
-#Frecuencia relativa acumulada
 frec_rel_acum = {}
 acum = 0
 for k in frec_rel:
     acum += frec_rel[k]
     frec_rel_acum[k] = round(acum, 4)
 
-#Frecuencia porcentual acumulada
 #Frecuencia porcentual acumulada
 frec_porcentual_acum = {k: round(v * 100, 2) for k, v in frec_rel_acum.items()}
 
