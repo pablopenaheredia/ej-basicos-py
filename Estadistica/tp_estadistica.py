@@ -25,6 +25,7 @@ desvio_poblacional = round(varianza_poblacional ** 0.5, 4)
 
 #Frecuencias:
 datos.sort()
+#Frec Absoluta
 frec_abs = {}
 for dato in datos:
     if dato in frec_abs:
