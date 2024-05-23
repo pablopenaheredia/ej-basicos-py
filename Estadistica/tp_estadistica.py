@@ -9,6 +9,7 @@ n = len(datos)
 
 #media, mediana, primer y tercer cuartil, moda.
 media = round(sum(datos) / n, 4) 
+media = round(sum(datos) / n, 4) 
 mediana = round(statistics.median(datos), 4)
 datos_inferiores = [n for n in datos if n < mediana]
 datos_superiores = [n for n in datos if n > mediana]
@@ -24,6 +25,7 @@ desvio_poblacional = round(varianza_poblacional ** 0.5, 4)
 
 #Frecuencias:
 
+
 datos.sort()
 frec_abs = {}
 for dato in datos:
@@ -31,6 +33,7 @@ for dato in datos:
         frec_abs[dato] += 1
     else:
         frec_abs[dato] = 1
+
 
 
 frec_rel = {}
@@ -47,6 +50,7 @@ for k in frec_abs:
 frec_porcentual = {k: round(v * 100, 2) for k, v in frec_rel.items()}
 
 #Frecuencia absoluta acumulada
+#Frecuencia absoluta acumulada
 frec_abs_acum = {}
 acum = 0
 for k in frec_abs:
@@ -54,12 +58,14 @@ for k in frec_abs:
     frec_abs_acum[k] = acum
 
 #Frecuencia relativa acumulada
+#Frecuencia relativa acumulada
 frec_rel_acum = {}
 acum = 0
 for k in frec_rel:
     acum += frec_rel[k]
     frec_rel_acum[k] = round(acum, 4)
 
+#Frecuencia porcentual acumulada
 #Frecuencia porcentual acumulada
 frec_porcentual_acum = {k: round(v * 100, 2) for k, v in frec_rel_acum.items()}
 
