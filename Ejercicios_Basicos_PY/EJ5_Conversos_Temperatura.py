@@ -1,17 +1,26 @@
-# Solicitar conversión
-opcion = input("¿Desea convertir de grados Celsius a Fahrenheit (ingrese C) o de Fahrenheit a Celsius (ingrese F)? ")
+#Ejercicio 5: Conversor de Temperatura (Actualización)
+#Mejora el programa de conversión de temperatura que escribiste 
+#anteriormente para que permita al usuario elegir entre convertir de grados Celsius a grados Fahrenheit o viceversa.
 
-#.upper se utiliza para convertir todos los caracteres en minúscula de una cadena a caracteres en mayúscula.
-#Devuelve una nueva cadena con los caracteres convertidos, dejando la cadena original sin cambios.
+def celsius_farenheit(celsius):
+    farhenheit = (celsius * 9/5) + 32
+    return farhenheit
 
-if opcion.upper() == 'C': 
-    celsius = float(input("Ingrese la temperatura en grados Celsius: "))
-    fahrenheit = (celsius * 9/5) + 32
-    print("La temperatura en grados Fahrenheit es: ", fahrenheit)
-elif opcion.upper() == 'F':
-    fahrenheit = float(input("Ingrese la temperatura en grados Fahrenheit: "))
+def farhenheit_celsius(fahrenheit):
     celsius = (fahrenheit - 32) * 5/9
-    print("La temperatura en grados Celsius es: ", celsius)
-else:
-    print("Opción no válida.")
+    return celsius
 
+def main ():
+    print("Convertidor de temperatura, eliga la opcion que desee")
+    print("Opcion 1: Convertir de Cº a Fº")
+    print("Opcion 2: Convertir de Fº a Cº")
+    opcion = input("Ingrese la opcion: ")
+
+    if opcion == '1':
+        celsius = float(input("Ingrese los grados a convertir: "))
+        fahrenheit = celsius_farenheit(celsius)
+        print(f"{celsius} grados Cº son {fahrenheit} grados Fº")
+    elif opcion == '2':
+        farhenheit = float(input("Ingrese los grados a convertir"))
+        celsius = farhenheit_celsius(farhenheit)
+        print(f"{farhenheit} grados Fº son {celsius} grados Fº")

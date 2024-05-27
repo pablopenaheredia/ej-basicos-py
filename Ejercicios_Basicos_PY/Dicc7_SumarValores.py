@@ -2,15 +2,14 @@
 #devuelva la suma de todos los valores.
 
 def sumarValores(diccionario):
-    suma = 0    
-    for k, v in diccionario.items():
-        for v in value:
-            suma += v
-        diccionariosumado[k] = suma
+    suma = 0
+    for i in diccionario:
+        suma += diccionario[i]
+    return suma
 
-numeros = input("Ingrese una lista de numeros separados por comas: ")
-lista = list(map(int, numeros.split(",")))
-print(f"La suma de los valores de la lista es: ", sumarValores(lista))
+diccionario = {'a':1,
+               'b':2,
+               'c':3,
+               'd':6}
 
-
-#le falta
+print(f"La suma de todos los valores de {diccionario} es: " ,sumarValores(diccionario))

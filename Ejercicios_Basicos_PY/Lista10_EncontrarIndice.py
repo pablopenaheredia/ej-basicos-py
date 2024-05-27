@@ -2,12 +2,11 @@
 #índice de la primera aparición de ese valor en la lista, o -1 si el valor no está presente.
 
 def encontrarIndice(lista, valor):
-    if valor in lista:
-        return lista.index(valor)
-    else:
-        return -1
+    for i in range (len(lista)):
+        if lista[i] == valor:
+            return i+1
+    return -1
 
-numeros = input("Ingrese una lista de numeros separados por comas: ")
-lista = list(map(int, numeros.split(",")))
-valor = int(input("Ingrese el valor para saber su indice (Debe estar en la lista ingresada previamente): "))
-print(f"La lista es: {lista} y el valor es {valor}, El indice del valor agregado es: ", encontrarIndice(lista, valor))
+lista = input("Ingrese una lista de numeros separados por coma: ")
+lista_numeros = list(map(int, lista.split(",")))
+valor = int(input("Ingrese un numero indice: "))
