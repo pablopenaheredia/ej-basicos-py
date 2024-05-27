@@ -4,22 +4,30 @@
 #hacer login incremente este valor, validar con otra función la cantidad de intentos posibles en
 #3 oportunidades.
 
-def Login(usuario, contraseña)
-    intentos = 0
+def Login(usuario, contraseña):
     if usuario == "usuario1" and contraseña == "asdasd":
         return True
     else:
-        intentos += 1
         return False
+    
+def validarIntentos(cantidadintentos):
 
-def validarIntentos(cantidad):
-    if cantidad < 3:
+    if cantidadintentos < 3:
         return True
     else:
         return False
-
-def main():
-    usuario = input("Ingrese su usuario: ")
-    contraseña = input("Ingrese su contraseña: ")
-    intentos = 0
     
+def main():
+    intentos = 0
+    while validarIntentos(intentos):
+        usuario = input("Ingrese su usuario: ")
+        contraseña = input("Ingrese su contraseña: ")
+        if Login(usuario, contraseña):
+            print("Has logeado correctamente")
+            break
+        else:
+            print("Intente nuevamente.")
+            intentos += 1
+
+if __name__ == "__main__":
+    main()
