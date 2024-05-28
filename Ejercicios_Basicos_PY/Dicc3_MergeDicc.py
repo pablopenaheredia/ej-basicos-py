@@ -3,8 +3,8 @@
 #diccionario).
 
 def merge(diccionario1, diccionario2):
-    diccionario1.update(diccionario2)
-    return diccionario1
+    diccionario2.update(diccionario1)
+    return diccionario2
 
 diccionario1 = {'a': 6,
                 'b': 5,
