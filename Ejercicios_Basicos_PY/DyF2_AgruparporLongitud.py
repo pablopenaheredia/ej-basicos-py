@@ -10,7 +10,7 @@ def agrupar(lista):
             diccionario[longitud].append(i)
         else:
             diccionario[longitud] = [i]
+    return diccionario
 
 palabras = ["hola", "bien", "vos", "como", "estas", "chau"]
-lista = Agrupar_Por_Longitud(i)
-print(lista)
+print(agrupar(palabras))

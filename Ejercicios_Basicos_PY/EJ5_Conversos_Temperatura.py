@@ -1,7 +1,3 @@
-#Ejercicio 5: Conversor de Temperatura (Actualización)
-#Mejora el programa de conversión de temperatura que escribiste 
-#anteriormente para que permita al usuario elegir entre convertir de grados Celsius a grados Fahrenheit o viceversa.
-
 def celsius_farenheit(celsius):
     farhenheit = (celsius * 9/5) + 32
     return farhenheit

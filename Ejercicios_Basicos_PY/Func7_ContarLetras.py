@@ -3,11 +3,11 @@
 
 def contarLetras(cadena):
     recuento = {}
-    for letra in cadena:
-        if letra in recuento:
-            recuento[letra] += 1
+    for i in cadena:
+        if i in recuento:
+            recuento[i] += 1
         else:
-            recuento[letra] = 1
+            recuento[i] = 1
     return recuento
 
 
