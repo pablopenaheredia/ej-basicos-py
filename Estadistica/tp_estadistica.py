@@ -15,14 +15,13 @@ def calcular_estadisticas(datos):
     media = round(sum(datos) / n, 4)  # Calcula la media con 4 decimales.
     mediana = round(statistics.median(datos), 4)  # Calcula la mediana con 4 decimales.
     '''if n % 2 == 0: 
-        indice_1 = n // 2
+        indice_1 = n // 2  #Redondea hacia arriba   
         indice_2 = indice_1 - 1
         mediana = (datos_ordenados[indice_1] + datos_ordenados[indice_2]) / 2
     else: 
         indice = n // 2
-        mediana = datos_ordenados[indice]
+        mediana = datos_ordenados[indice]'''
     
-    return mediana'''
     datos_inferiores = [n for n in datos if n < mediana]  # Filtra los datos inferiores a la mediana. donde la primera n significa que es lo que se va a agregar (append).
     '''for n in datos: 
         if n < mediana: 
@@ -58,6 +57,8 @@ def calcular_frecuencias(datos):
     n = len(datos) 
     datos.sort()  #Ordena los datos.
 
+#Frecuencia Absoluta:
+#Número de veces en que aparece repetido un mismo valor de la variable
     frec_abs = {}  #Definimos un diccionario vacio para la frecuencia absoluta.
     for dato in datos:
         if dato in frec_abs:
@@ -65,25 +66,38 @@ def calcular_frecuencias(datos):
         else:
             frec_abs[dato] = 1  # Inicializa el contador si el dato no está en el diccionario.
 
+#Frecuencia Relativa:
+#Es el cociente entre su frecuencia absoluta y la suma de todas las frecuencias absolutas.
     frec_rel = {}
     for k, v in frec_abs.items():
         frec_rel[k] = round(v / n, 4)  # Calcula la frecuencia relativa.
 
+#Frecuencia porcentual
+#Es igual a la frecuencia relativa multiplicada por 100. 
+#Expresa el porcentaje que el valor de una variable tiene en el total de observaciones.
     frec_porcentual = {}
     for k, v in frec_rel.items():
         frec_porcentual[k] = round(v * 100, 2) # Calcula la frecuencia porcentual.
-    
+
+#Frecuencia absoluta acumulada
+#Se obtiene sumando todas las frecuencias absolutas de las variables que le anteceden más la frecuencia absoluta de dicha variable.
     frec_abs_acum = {}  #Definimos un diccionario vacio para la frecuencia absoluta acumulada.
     contador = 0
     for k in frec_abs:
-        contador += frec_abs[k]  # Acumula las frecuencias.
+        contador += frec_abs[k]  # Acumula las frecuencias absolutas.
         frec_abs_acum[k] = contador  # Asigna la frecuencia acumulada al dato.
 
+#Frecuencia relativa acumulada
+#Se obtiene sumando todas las frecuencias relativas que la anteceden más la frecuencia relativa de dicha variable.
     frec_rel_acum = {}  #Definimos un diccionario vacio para la frecuencia relativa acumulada.
     contador = 0
     for k in frec_rel:
         contador += frec_rel[k]  # Acumula las frecuencias relativas.
         frec_rel_acum[k] = round(contador, 4)  # Asigna la frecuencia relativa acumulada al dato.
+
+#Frecuencia porcentual acumulada
+#Se obtiene sumando todas las frecuencias porcentuales de las variables que la anteceden
+#más la frecuencia porcentual de dicha variable.
 
     frec_porcentual_acum = {}
     for k, v in frec_rel_acum.items():
@@ -164,9 +178,6 @@ def main():
         if otra_consulta.lower() != 'si':
             print("Gracias por usar el programa.")
             break
-
-if __name__ == "_main_":
-    main()
 
 if __name__ == "__main__":
     main()
