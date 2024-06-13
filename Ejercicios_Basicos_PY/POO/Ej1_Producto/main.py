@@ -1,9 +1,10 @@
+#se importa la clase Producto de producto.py, Electronico del archivo electronico.py, lo mismo con alimento
 from producto import Producto
-from electronico import Electronico #se importa la clase Electronico del archivo electronico.py, lo mismo con alimento
+from electronico import Electronico
 from alimento import Alimento
 
 def main(): #Se define el programa principal creando un objeto producto, uno electronico y uno alimento, con sus atributos propios
-    
+
     producto = Producto("Perfume", 25000, 35)
     producto.mostrar_info_producto()
 
