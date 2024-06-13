@@ -2,7 +2,7 @@ from producto import Producto
 from electronico import Electronico #se importa la clase Electronico del archivo electronico.py, lo mismo con alimento
 from alimento import Alimento
 
-def main(): #Se define el programa principal creando un objeto electronico, que recibe los atributos en parentesis, y debajo el metodo para printearlo
+def main(): #Se define el programa principal creando un objeto producto, uno electronico y uno alimento, con sus atributos propios
     
     producto = Producto("Perfume", 25000, 35)
     producto.mostrar_info_producto()
