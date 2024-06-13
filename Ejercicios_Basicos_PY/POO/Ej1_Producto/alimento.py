@@ -7,5 +7,5 @@ class Alimento(Producto):  #Se crea un objeto hijo (alimento) a partir de la cla
 
     
     def mostrar_info_alimento(self): #funcion para mostrar los atributos del objeto hijo alimento
-       super().mostrar_info_producto()  # Llamar al método de la clase base
+       super().mostrar_info_producto() #se llama al método para mostrar la info del producto padre, y se suma los del hijo
        print(f"Fecha de Expiracion: {self.fecha_expiracion}")

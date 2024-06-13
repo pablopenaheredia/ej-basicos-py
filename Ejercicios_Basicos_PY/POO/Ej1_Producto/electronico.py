@@ -8,6 +8,6 @@ class Electronico(Producto): #Se crea un objeto hijo (Electronico) a partir de l
 
     
     def mostrar_info_electronico(self): #funcion para mostrar los atributos del objeto hijo electronico
-        super().mostrar_info_producto()  # Llamar al método de la clase base
+        super().mostrar_info_producto()  #se llama al método para mostrar la info del producto padre, y se suma los del hijo
         print(f"Marca: {self.marca}"
               f"\nModelo: {self.modelo}")
